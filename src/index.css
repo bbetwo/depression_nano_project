@@ -1,4 +1,10 @@
-:root {
+@import './styles/reset.css';
+
+body {
+  background: #eb0000;
+
+background: linear-gradient(40deg, rgba(47, 56, 99, 1) 81%);}
+/* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -12,6 +18,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
 
 
 a {
@@ -66,4 +74,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */

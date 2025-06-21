@@ -4,23 +4,21 @@ import { ProductItem } from "../components/ProducItem";
 import { useEffect, useState } from "react";
 import { productMock } from "../utils/mock";
 import type { ProductItemType } from "../types";
-import { useCartCont } from "../hooks/useCartCont";
+import { useCartCont } from "../hooks/useCartContext";
 
 const ProductList = styled.div`
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
   gap: 15px;
   justify-content: center;
 `;
 
 export const HomePages = () => {
   const [productItems, setProductItems] = useState<ProductItemType[]>([]);
-  const { state, dispatch } = useCartCont();
+  const { state } = useCartCont();
   console.log(state.productItems, "asdasdasd");
-
-  const handleClickAdd = (obj: ProductItemType) => {
-    dispatch({ type: "ADD_ITEM", payload: obj });
-  };
 
   useEffect(() => {
     const data = productMock(10);
@@ -32,7 +30,7 @@ export const HomePages = () => {
       <Header />
       <ProductList>
         {productItems.map((el) => {
-          return <ProductItem key={el.id} item={el} onClic={handleClickAdd} />;
+          return <ProductItem key={el.id} item={el} />;
         })}
       </ProductList>
 

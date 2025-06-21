@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import type { ProductItemType } from "../types";
+import { Button } from "./Button";
+import { useCartCont } from "../hooks/useCartContext";
+import { useCallback } from "react";
 
 const ProductWrapper = styled.div`
   display: flex;
@@ -11,18 +14,24 @@ const ProductWrapper = styled.div`
 
 type Props = {
   item: ProductItemType;
-  onClic: (obj: ProductItemType) => void;
+  // onClic: (obj: ProductItemType) => void;
 };
 
-export const ProductItem = ({ item, onClic }: Props) => {
+export const ProductItem = ({ item }: Props) => {
   const { name, description, price } = item;
+  const { dispatch } = useCartCont();
+
+  const handleClickAdd = useCallback(() => {
+    dispatch({ type: "ADD_ITEM", payload: item });
+  }, [dispatch, item]);
+
   return (
     <>
       <ProductWrapper>
         <h2>{name}</h2>
         <p>{description}</p>
         <span>price: {price}</span>
-        <button onClick={() => onClic(item)}>Add Cart</button>
+        <Button onClick={handleClickAdd}>Add Cart</Button>
       </ProductWrapper>
     </>
   );

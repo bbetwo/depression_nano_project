@@ -1,15 +1,25 @@
+import { CartItem } from "../components/CartItem";
 import { Header } from "../components/Header";
-import { useCartCont } from "../hooks/useCartCont";
+import { useCartCont } from "../hooks/useCartContext";
 
 export const CartPages = () => {
   const { state } = useCartCont();
   return (
     <>
       <Header />
-      {state?.productItems.map((el) => {
-        return <div>{el.product.name}</div>;
-      })}
-      <div>{state.totalPrice}</div>
+      {state.totalPrice === 0 ? (
+        <div>Pusto Bratishka</div>
+      ) : (
+        state.productItems.map((el) => {
+          return (
+            <div>
+              <CartItem item={el.product} />
+              <span>{el.quantity}</span>
+            </div>
+          );
+        })
+      )}
+      <div>Общий прайсик: {state.totalPrice} даларей</div>
     </>
   );
 };
