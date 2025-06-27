@@ -2,12 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Headers = styled.div`
-  /* background-color: indigo; */
-  background: linear-gradient(
-    40deg,
-    rgba(47, 56, 99, 1) 81%,
-    rgba(240, 132, 153, 1) 82%
-  );
+  background-color: rgb(92 0 159 / 35%);
   display: flex;
   justify-content: center;
   padding: 20px 0;
@@ -15,7 +10,6 @@ const Headers = styled.div`
 `;
 
 const HeaderUl = styled.ul`
-  color: white;
   display: flex;
   gap: 10px;
   align-items: center;

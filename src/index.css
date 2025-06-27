@@ -1,9 +1,7 @@
 @import './styles/reset.css';
 
 body {
-  background: #eb0000;
-
-background: linear-gradient(40deg, rgba(47, 56, 99, 1) 81%);}
+  background-color: #00077a94;}
 /* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;

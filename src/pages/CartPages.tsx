@@ -13,8 +13,7 @@ export const CartPages = () => {
         state.productItems.map((el) => {
           return (
             <div>
-              <CartItem item={el.product} />
-              <span>{el.quantity}</span>
+              <CartItem items={el} />
             </div>
           );
         })

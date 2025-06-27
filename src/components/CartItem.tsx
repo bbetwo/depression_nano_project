@@ -3,20 +3,25 @@ import type { ProductItemType } from "../types";
 import { Button } from "./Button";
 
 type CartItemType = {
-  item: ProductItemType;
+  items: {
+    product: ProductItemType;
+    quantity: number;
+  };
 };
 
-export const CartItem = ({ item }: CartItemType) => {
+export const CartItem = ({ items }: CartItemType) => {
+  const { product, quantity } = items;
+
   const { plusItem, minusItem, removItems } = useCartAction();
-  console.log(plusItem, "DSFS");
 
   return (
     <div>
-      <div>{item.name}</div>
-      <span>{item.price}</span>
-      <Button onClick={() => plusItem(item.id)}>+</Button>
-      <Button onClick={() => minusItem(item.id)}>-</Button>
-      <Button onClick={() => removItems(item.id)}>Del</Button>
+      <div>{product.name}</div>
+      <span>{product.price}</span>
+      <span>{quantity}</span>
+      <Button onClick={() => plusItem(product.id)}>+</Button>
+      <Button onClick={() => minusItem(product.id)}>-</Button>
+      <Button onClick={() => removItems(product.id)}>Del</Button>
     </div>
   );
 };

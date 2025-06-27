@@ -8,12 +8,19 @@ const ProductWrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: 0 1 33.33%;
+  align-items: center;
   gap: 5px;
-  background-color: bisque;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(92 0 159 / 35%);
+  &:hover {
+    background-color: rgb(19 0 34 / 35%);
+  }
 `;
 
 type Props = {
   item: ProductItemType;
+
   // onClic: (obj: ProductItemType) => void;
 };
 
